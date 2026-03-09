@@ -8,7 +8,7 @@ import { createPlexClient } from '../lib/plex/plexClient.js';
 import { createPlaylist, deletePlaylist, getPlaylist } from '../lib/plex/index.js';
 import logger from '../lib/plex/logger.js';
 
-const DEFAULT_CONFIG_PATH = path.join(os.homedir(), '.plex-playlist-cli.json');
+const DEFAULT_CONFIG_PATH = path.join(os.homedir(), '.plexlists-cli.json');
 const program = new Command();
 
 // ============================================================================
@@ -16,7 +16,7 @@ const program = new Command();
 // ============================================================================
 
 function getConfigPath(options) {
-  // Priority: --config flag > env var > cwd/.plex-playlist.json > default home config
+  // Priority: --config flag > env var > cwd/.plexlists.json > default home config
   if (options?.config) {
     return path.resolve(options.config);
   }
@@ -25,7 +25,7 @@ function getConfigPath(options) {
     return path.resolve(process.env.PLEX_PLAYLIST_CONFIG);
   }
   
-  const cwdConfig = path.join(process.cwd(), '.plex-playlist.json');
+  const cwdConfig = path.join(process.cwd(), '.plexlists.json');
   if (fs.existsSync(cwdConfig)) {
     return cwdConfig;
   }
@@ -83,7 +83,7 @@ async function syncPlaylists(folders, options) {
   
   if (!config.token) {
     console.error('Error: Plex token not configured.');
-    console.error('Run: plex-playlist config set --token=YOUR_TOKEN');
+    console.error('Run: plexlists config set --token=YOUR_TOKEN');
     process.exit(1);
   }
 
@@ -94,7 +94,7 @@ async function syncPlaylists(folders, options) {
   
   if (!libraryName) {
     console.error('Error: --library is required (or set "library" in config file)');
-    console.error('Example: plex-playlist sync folder --library=Music');
+    console.error('Example: plexlists sync folder --library=Music');
     console.error('Or add "library": "Music" to your config file');
     process.exit(1);
   }
@@ -220,7 +220,7 @@ async function syncPlaylists(folders, options) {
 // ============================================================================
 
 program
-  .name('plex-playlist')
+  .name('plexlists')
   .description('CLI for Plex Folder Playlist Creator')
   .version('1.0.0');
 
@@ -228,7 +228,7 @@ program
   .command('config')
   .description('Manage configuration')
   .argument('<action>', 'Action: set, show, path')
-  .option('-c, --config <file>', 'Config file path (default: ~/.plex-playlist-cli.json)')
+  .option('-c, --config <file>', 'Config file path (default: ~/.plexlists-cli.json)')
   .option('--host <host>', 'Plex server host/IP')
   .option('--port <port>', 'Plex server port', '32400')
   .option('--token <token>', 'Plex authentication token')

@@ -3,10 +3,10 @@
 The CLI finds config in this order (first found wins):
 
 ```
-1. --config flag       →  plex-playlist sync ... --config=/path/to/config.json
+1. --config flag       →  plexlists sync ... --config=/path/to/config.json
 2. Environment var     →  export PLEX_PLAYLIST_CONFIG=~/my-config.json
-3. Current directory   →  ./.plex-playlist.json
-4. Home directory      →  ~/.plex-playlist-cli.json
+3. Current directory   →  ./.plexlists.json
+4. Home directory      →  ~/.plexlists-cli.json
 ```
 
 ## Config File Format
@@ -77,29 +77,29 @@ All config files use the same JSON structure:
 
 ### Default (home config)
 ```bash
-plex-playlist config set --host=X --token=Y
-# Creates: ~/.plex-playlist-cli.json
+plexlists config set --host=X --token=Y
+# Creates: ~/.plexlists-cli.json
 # Used by all commands unless overridden
 ```
 
 ### Project-specific config
 ```bash
 cd ~/my-music-project
-plex-playlist config set --host=X --token=Y
-# Creates: ~/my-music-project/.plex-playlist.json
+plexlists config set --host=X --token=Y
+# Creates: ~/my-music-project/.plexlists.json
 # Used when running from this directory
 ```
 
 ### Custom config path
 ```bash
-plex-playlist sync folder --library=Music --config=/etc/plex/config.json
+plexlists sync folder --library=Music --config=/etc/plex/config.json
 # Uses: /etc/plex/config.json (one-time)
 ```
 
 ### Environment variable
 ```bash
 export PLEX_PLAYLIST_CONFIG=~/servers/home-plex.json
-plex-playlist sync folder --library=Music
+plexlists sync folder --library=Music
 # Uses: ~/servers/home-plex.json
 ```
 
@@ -108,19 +108,19 @@ plex-playlist sync folder --library=Music
 ### Multiple Plex servers
 ```bash
 # Home server
-plex-playlist sync ~/Music/Playlists/* --library=Music \
+plexlists sync ~/Music/Playlists/* --library=Music \
   --config=~/.plex-home.json
 
 # VPS server
-plex-playlist sync ~/Music/Playlists/* --library=Music \
+plexlists sync ~/Music/Playlists/* --library=Music \
   --config=~/.plex-vps.json
 ```
 
 ### Per-project configs (recommended for teams)
 ```bash
-# Each project has .plex-playlist.json in its root
-cd ~/project-a && plex-playlist sync Playlists/* --library=Music
-cd ~/project-b && plex-playlist sync Playlists/* --library=Music
+# Each project has .plexlists.json in its root
+cd ~/project-a && plexlists sync Playlists/* --library=Music
+cd ~/project-b && plexlists sync Playlists/* --library=Music
 ```
 
 ### Shared config via env var (recommended for servers)
@@ -129,26 +129,26 @@ cd ~/project-b && plex-playlist sync Playlists/* --library=Music
 export PLEX_PLAYLIST_CONFIG=/opt/plex-config.json
 
 # Now all commands use shared config
-plex-playlist sync /media/playlists/* --library=Music
+plexlists sync /media/playlists/* --library=Music
 ```
 
 ## Check active config
 
 ```bash
 # Show config path
-plex-playlist config path
+plexlists config path
 
 # Show config contents
-plex-playlist config show
+plexlists config show
 
 # Both work with --config flag:
-plex-playlist config show --config=/path/to/config.json
+plexlists config show --config=/path/to/config.json
 ```
 
 ## Tips
 
 ✅ **DO:**
-- Use project-specific configs (`.plex-playlist.json` in project root)
+- Use project-specific configs (`.plexlists.json` in project root)
 - Use env vars for shared servers
 - Use `--config` for one-off commands
 

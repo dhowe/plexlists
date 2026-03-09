@@ -8,12 +8,12 @@ Copy an example and customize it:
 
 ```bash
 # Local server
-cp examples/config-local.json ~/.plex-playlist-cli.json
-nano ~/.plex-playlist-cli.json  # Edit token
+cp examples/config-local.json ~/.plexlists-cli.json
+nano ~/.plexlists-cli.json  # Edit token
 
 # Remote server
-cp examples/config-remote.json ~/my-project/.plex-playlist.json
-nano ~/my-project/.plex-playlist.json  # Edit host and token
+cp examples/config-remote.json ~/my-project/.plexlists.json
+nano ~/my-project/.plexlists.json  # Edit host and token
 ```
 
 ## Files

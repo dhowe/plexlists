@@ -32,14 +32,14 @@ Set your repository URL:
 npm install
 
 # Test the CLI
-./bin/plex-playlist.js --help
+./bin/plexlists.js --help
 
 # Run test script
 npm test
 
 # Link globally for testing
 npm link
-plex-playlist --help
+plexlists --help
 
 # When done testing
 npm unlink -g

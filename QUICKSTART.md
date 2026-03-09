@@ -33,7 +33,7 @@ Quick method:
 ## 3. Configure
 
 ```bash
-plex-playlist config set \
+plexlists config set \
   --host=192.168.1.100 \
   --port=32400 \
   --token=YOUR_PLEX_TOKEN \
@@ -43,21 +43,21 @@ plex-playlist config set \
 **Or** copy an example config:
 
 ```bash
-cp examples/config-local.json ~/.plex-playlist-cli.json
-nano ~/.plex-playlist-cli.json  # Edit token
+cp examples/config-local.json ~/.plexlists-cli.json
+nano ~/.plexlists-cli.json  # Edit token
 ```
 
 ## 4. Test connection
 
 ```bash
-plex-playlist test
+plexlists test
 ```
 
 Expected output:
 ```
 Testing connection to Plex server...
 Host: 192.168.1.100:32400
-Config: /Users/you/.plex-playlist-cli.json
+Config: /Users/you/.plexlists-cli.json
 
 ✅ Connection successful!
 Server: My Plex Server
@@ -82,20 +82,20 @@ ln -s ~/Music/Library/Artist/track2.mp3 ~/Music/Playlists/Workout/
 **Dry run first (preview):**
 
 ```bash
-plex-playlist sync ~/Music/Playlists/* --dry-run
+plexlists sync ~/Music/Playlists/* --dry-run
 ```
 
 **Apply changes:**
 
 ```bash
-plex-playlist sync ~/Music/Playlists/*
+plexlists sync ~/Music/Playlists/*
 ```
 
 Expected output:
 ```
 🔄 Syncing playlists to Plex library: "Music"
    Host: 192.168.1.100:32400
-   Config: /Users/you/.plex-playlist-cli.json
+   Config: /Users/you/.plexlists-cli.json
    Folders: 2
 
 ➕ Creating: "Favorites" (/Users/you/Music/Playlists/Favorites)
@@ -129,25 +129,25 @@ crontab -e
 
 Add:
 ```cron
-0 2 * * * cd ~/Music && plex-playlist sync Playlists/*
+0 2 * * * cd ~/Music && plexlists sync Playlists/*
 ```
 
 ### On file change (macOS/Linux)
 
 ```bash
 # Install fswatch (macOS: brew install fswatch)
-fswatch -o ~/Music/Playlists | xargs -n1 -I{} plex-playlist sync ~/Music/Playlists/*
+fswatch -o ~/Music/Playlists | xargs -n1 -I{} plexlists sync ~/Music/Playlists/*
 ```
 
 ## Troubleshooting
 
 ### "Error: Plex token not configured"
 
-Run: `plex-playlist config set --token=YOUR_TOKEN`
+Run: `plexlists config set --token=YOUR_TOKEN`
 
 ### "Connection failed"
 
-1. Check host/port: `plex-playlist config show`
+1. Check host/port: `plexlists config show`
 2. Verify Plex is running
 3. Check firewall
 

@@ -19,7 +19,7 @@ npm install
 # Test imports
 echo "🔍 Testing module imports..."
 node -e "
-import('./bin/plex-playlist.js').then(() => {
+import('./bin/plexlists.js').then(() => {
     console.log('✅ Module imports successful');
     process.exit(0);
 }).catch(err => {
@@ -30,12 +30,12 @@ import('./bin/plex-playlist.js').then(() => {
 
 # Test CLI help
 echo "📖 Testing CLI help..."
-node bin/plex-playlist.js --help > /dev/null
+node bin/plexlists.js --help > /dev/null
 echo "✅ CLI help works"
 
 # Test config command
 echo "⚙️  Testing config command..."
-node bin/plex-playlist.js config show > /dev/null 2>&1 || true
+node bin/plexlists.js config show > /dev/null 2>&1 || true
 echo "✅ Config command works"
 
 # Check package files
@@ -67,5 +67,5 @@ echo "✅ All tests passed!"
 echo ""
 echo "Next steps:"
 echo "  1. npm link          # Test globally"
-echo "  2. plex-playlist --help"
+echo "  2. plexlists --help"
 echo "  3. npm publish --dry-run  # Preview publish"

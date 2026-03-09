@@ -1,52 +1,50 @@
 # plex-folder-playlist-cli
 
-Command-line tool for syncing folder-based playlists to Plex Media Server.
+Command-line tool for syncing folder-based playlists in Plex
 
 ## Features
 
 - ✅ **Sync playlists from folders** - Folder name becomes playlist name
-- ✅ **Update existing playlists** - Delete and recreate when content changes
+- ✅ **Update existing playlists** - Automatic update of playlists on content change
 - ✅ **Batch processing** - Sync multiple folders at once
-- ✅ **Error tolerance** - Continue if one playlist fails
-- ✅ **Dry run mode** - Preview changes before applying
-- ✅ **Config file** - Store Plex credentials once
+- ✅ **Config file** - Store credentials once
 - ✅ **Symlink support** - Works with symlinked files
-- ✅ **Cron-friendly** - Exit codes, logging for automation
+
 
 ## Installation
 
 ### Via npm
 
 ```bash
-npm install -g plex-folder-playlist-cli
-plex-playlist --help
+npm install -g plexlists
+plexlists --help
 ```
 
 ### From source
 
 ```bash
-git clone https://github.com/yourusername/plexlists.git
+git clone https://github.com/dhowe/plexlists.git
 cd plexlists
 npm install
 npm link
-plex-playlist --help
+plexlists --help
 ```
 
 ## Quick Start
 
 ```bash
 # 1. Configure
-plex-playlist config set \
+plexlists config set \
   --host=192.168.1.100 \
   --port=32400 \
   --token=YOUR_PLEX_TOKEN \
   --library=Music
 
 # 2. Test connection
-plex-playlist test
+plexlists test
 
 # 3. Sync playlists
-plex-playlist sync ~/Music/Playlists/*
+plexlists sync ~/Music/Playlists/*
 ```
 
 ## Configuration
@@ -74,8 +72,8 @@ plex-playlist sync ~/Music/Playlists/*
 
 1. `--config` flag - Explicit path
 2. `PLEX_PLAYLIST_CONFIG` env var
-3. `./.plex-playlist.json` - Project-specific
-4. `~/.plex-playlist-cli.json` - User default
+3. `./.plexlists.json` - Project-specific
+4. `~/.plexlists-cli.json` - User default
 
 See [examples/](examples/) for sample configs and [docs/CONFIG-PRIORITY.md](docs/CONFIG-PRIORITY.md) for details.
 
@@ -85,35 +83,35 @@ See [examples/](examples/) for sample configs and [docs/CONFIG-PRIORITY.md](docs
 
 ```bash
 # Sync all playlists (library from config)
-plex-playlist sync ~/Music/Playlists/*
+plexlists sync ~/Music/Playlists/*
 
 # Override library
-plex-playlist sync ~/Movies/Playlists/* --library=Movies
+plexlists sync ~/Movies/Playlists/* --library=Movies
 
 # Dry run (preview changes)
-plex-playlist sync ~/Music/Playlists/* --dry-run
+plexlists sync ~/Music/Playlists/* --dry-run
 
 # Verbose logging
-plex-playlist sync ~/Music/Playlists/* --verbose
+plexlists sync ~/Music/Playlists/* --verbose
 ```
 
 ### Config management
 
 ```bash
 # Show config
-plex-playlist config show
+plexlists config show
 
 # Set config
-plex-playlist config set --host=X --token=Y --library=Music
+plexlists config set --host=X --token=Y --library=Music
 
 # Show config path
-plex-playlist config path
+plexlists config path
 ```
 
 ### Test connection
 
 ```bash
-plex-playlist test
+plexlists test
 ```
 
 ## Automation
@@ -126,12 +124,12 @@ crontab -e
 
 Add:
 ```cron
-0 2 * * * cd /home/user/music-project && plex-playlist sync Playlists/* >> /var/log/plex-sync.log 2>&1
+0 2 * * * cd /home/user/music-project && plexlists sync Playlists/* >> /var/log/plexlists.log 2>&1
 ```
 
 ### systemd timer (Linux)
 
-Create `/etc/systemd/system/plex-sync.service`:
+Create `/etc/systemd/system/plexlists.service`:
 
 ```ini
 [Unit]
@@ -141,10 +139,10 @@ Description=Sync Plex playlists
 Type=oneshot
 User=your-user
 WorkingDirectory=/home/your-user/music-project
-ExecStart=/usr/local/bin/plex-playlist sync Playlists/*
+ExecStart=/usr/local/bin/plexlists sync Playlists/*
 ```
 
-Create `/etc/systemd/system/plex-sync.timer`:
+Create `/etc/systemd/system/plexlists.timer`:
 
 ```ini
 [Unit]
@@ -160,7 +158,7 @@ WantedBy=timers.target
 
 Enable:
 ```bash
-sudo systemctl enable --now plex-sync.timer
+sudo systemctl enable --now plexlists.timer
 ```
 
 ## Folder Structure Example
@@ -190,7 +188,7 @@ sudo systemctl enable --now plex-sync.timer
 Sync:
 ```bash
 cd ~/Music
-plex-playlist sync Playlists/*
+plexlists sync Playlists/*
 ```
 
 Result in Plex:
@@ -210,13 +208,13 @@ Result in Plex:
 ### "Error: Plex token not configured"
 
 ```bash
-plex-playlist config set --token=YOUR_TOKEN
+plexlists config set --token=YOUR_TOKEN
 ```
 
 ### "Connection failed"
 
-1. Check config: `plex-playlist config show`
-2. Test connection: `plex-playlist test`
+1. Check config: `plexlists config show`
+2. Test connection: `plexlists test`
 3. Verify Plex server is running and accessible
 4. Check firewall settings
 
@@ -230,13 +228,16 @@ plex-playlist config set --token=YOUR_TOKEN
 ### Which config is being used?
 
 ```bash
-plex-playlist config path   # Show active config file
-plex-playlist config show   # Show config contents
+plexlists config path   # Show active config file
+plexlists config show   # Show config contents
 ```
 
 ## Related Projects
 
 - [Plex Folder Playlist Creator (GUI)](https://github.com/zackria/Plex-Folder-Playlist-Creator) - Electron desktop app with same functionality
+
+## Credits
+Based on code by Zack Dawood (https://github.com/zackria/Plex-Folder-Playlist-Creator)
 
 ## License
 

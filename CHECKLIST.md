@@ -13,13 +13,13 @@ Before publishing to npm, verify everything is ready.
 
 - [ ] Install dependencies: `npm install`
 - [ ] Run test script: `npm test` or `./test.sh`
-- [ ] Test CLI locally: `npm link && plex-playlist --help`
+- [ ] Test CLI locally: `npm link && plexlists --help`
 - [ ] Test all commands:
-  - [ ] `plex-playlist config set --host=X --token=Y`
-  - [ ] `plex-playlist config show`
-  - [ ] `plex-playlist test`
-  - [ ] `plex-playlist sync FOLDER --dry-run`
-- [ ] Verify examples work: `cp examples/config-local.json ~/.plex-playlist-cli.json`
+  - [ ] `plexlists config set --host=X --token=Y`
+  - [ ] `plexlists config show`
+  - [ ] `plexlists test`
+  - [ ] `plexlists sync FOLDER --dry-run`
+- [ ] Verify examples work: `cp examples/config-local.json ~/.plexlists-cli.json`
 
 ## Documentation
 
@@ -114,5 +114,5 @@ npm publish
 # Verify
 npm info plex-folder-playlist-cli
 npm install -g plex-folder-playlist-cli
-plex-playlist --version
+plexlists --version
 ```
