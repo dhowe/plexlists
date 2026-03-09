@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "port": 32400,
+  "token": "YOUR_PLEX_TOKEN_HERE",
+  "library": "Music",
+  "timeout": 60000
+}

@@ -1,0 +1,7 @@
+{
+  "host": "https://plex.example.com",
+  "port": 443,
+  "token": "YOUR_PLEX_TOKEN_HERE",
+  "library": "Music",
+  "timeout": 120000
+}

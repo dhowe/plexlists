@@ -1,0 +1,50 @@
+{
+  "name": "plex-folder-playlist-cli",
+  "version": "1.0.0",
+  "description": "CLI for syncing folder-based playlists to Plex Media Server",
+  "type": "module",
+  "bin": {
+    "plex-playlist": "./bin/plex-playlist.js"
+  },
+  "scripts": {
+    "test": "./test.sh"
+  },
+  "keywords": [
+    "plex",
+    "playlist",
+    "media",
+    "automation",
+    "cli",
+    "music",
+    "symlink",
+    "folder",
+    "sync"
+  ],
+  "author": "Zack Dawood <zack@zackdawood.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/plexlists.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/plexlists/issues"
+  },
+  "homepage": "https://github.com/yourusername/plexlists#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "fast-xml-parser": "^4.0.11",
+    "node-fetch": "^2.6.12"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "examples/",
+    "docs/",
+    "README.md",
+    "LICENSE",
+    "PUBLISHING.md"
+  ]
+}

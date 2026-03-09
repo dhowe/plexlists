@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Build outputs
+dist/
+build/
+
+# Config files (user-specific)
+.plex-playlist.json
+.plex-playlist-cli.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+tmp/
+temp/
+
+# npm pack output
+*.tgz
