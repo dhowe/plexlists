@@ -221,7 +221,7 @@ async function syncPlaylists(folders, options) {
 
 program
   .name('plexlists')
-  .description('CLI for Plex Folder Playlist Creator')
+  .description('Plex Playlist Manager')
   .version('1.0.0');
 
 program

@@ -36,10 +36,7 @@
   "files": [
     "bin/",
     "lib/",
-    "examples/",
-    "docs/",
     "README.md",
-    "LICENSE",
-    "PUBLISHING.md"
+    "LICENSE"
   ]
 }
