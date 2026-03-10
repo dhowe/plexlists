@@ -71,11 +71,11 @@ plexlists sync ~/Music/Playlists/*
 ### Config file locations (priority order)
 
 1. `--config` flag - Explicit path
-2. `PLEX_PLAYLIST_CONFIG` env var
+2. `PLEXLISTS_CONFIG` env var
 3. `./.plexlists-conf.json` - Project-specific
 4. `~/.plexlists-conf.json` - User default
 
-See [examples/](examples/) for sample configs and [docs/CONFIG-PRIORITY.md](docs/CONFIG-PRIORITY.md) for details.
+See [examples/](examples/) for sample configs and [docs/CONFIG_PRIORITY.md](docs/CONFIG_PRIORITY.md) for details.
 
 ## Usage
 
@@ -200,7 +200,7 @@ Result in Plex:
 
 - [Finding Plex Token](docs/FIND_PLEX_TOKEN.md)
 - [Finding Host & Port](docs/FINDHOST_PORT.md)
-- [Config Priority Guide](docs/CONFIG-PRIORITY.md)
+- [Config Priority Guide](docs/CONFIG_PRIORITY.md)
 - [Publishing to npm](PUBLISHING.md)
 
 ## Troubleshooting

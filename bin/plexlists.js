@@ -21,8 +21,8 @@ function getConfigPath(options) {
     return path.resolve(options.config);
   }
   
-  if (process.env.PLEX_PLAYLIST_CONFIG) {
-    return path.resolve(process.env.PLEX_PLAYLIST_CONFIG);
+  if (process.env.PLEXLISTS_CONFIG) {
+    return path.resolve(process.env.PLEXLISTS_CONFIG);
   }
   
   const cwdConfig = path.join(process.cwd(), '.plexlists-conf.json');

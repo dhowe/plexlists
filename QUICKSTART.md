@@ -160,7 +160,7 @@ Run: `plexlists config set --token=YOUR_TOKEN`
 ### Need help?
 
 - [Full README](README.md)
-- [Config guide](docs/CONFIG-PRIORITY.md)
+- [Config guide](docs/CONFIG_PRIORITY.md)
 - [GitHub Issues](https://github.com/yourusername/plexlists/issues)
 
 ## Next Steps
