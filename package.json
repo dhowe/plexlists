@@ -1,6 +1,6 @@
 {
   "name": "plexlists",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI for creating and syncing folder-based playlists in Plex",
   "type": "module",
   "bin": {
@@ -29,8 +29,8 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "fast-xml-parser": "^4.0.11",
     "commander": "^12.0.0",
+    "fast-xml-parser": "^4.0.11",
     "node-fetch": "^2.6.12"
   },
   "files": [
