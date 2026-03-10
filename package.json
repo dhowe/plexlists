@@ -1,7 +1,7 @@
 {
   "name": "plexlists",
   "version": "1.0.0",
-  "description": "CLI for syncing folder-based playlists to Plex Media Server",
+  "description": "CLI for creating and syncing folder-based playlists in Plex",
   "type": "module",
   "bin": {
     "plexlists": "./bin/plexlists.js"
