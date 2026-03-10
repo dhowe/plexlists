@@ -1,13 +1,13 @@
 # Quick Setup
 
-Get started with plex-folder-playlist-cli in 5 minutes.
+Get started with plexlists in 5 minutes.
 
 ## 1. Install
 
 ### Option A: From npm (recommended)
 
 ```bash
-npm install -g plex-folder-playlist-cli
+npm install -g plexlists
 ```
 
 ### Option B: From source
@@ -21,7 +21,7 @@ npm link
 
 ## 2. Find your Plex token
 
-See [docs/FINDPLEXTOKEN.md](docs/FINDPLEXTOKEN.md) for instructions.
+See [docs/FIND_PLEX_TOKEN.md](docs/FIND_PLEX_TOKEN.md) for instructions.
 
 Quick method:
 1. Open Plex Web
@@ -43,8 +43,8 @@ plexlists config set \
 **Or** copy an example config:
 
 ```bash
-cp examples/config-local.json ~/.plexlists-cli.json
-nano ~/.plexlists-cli.json  # Edit token
+cp examples/config-local.json ~/.plexlists-conf.json
+nano ~/.plexlists-conf.json  # Edit token
 ```
 
 ## 4. Test connection
@@ -57,7 +57,7 @@ Expected output:
 ```
 Testing connection to Plex server...
 Host: 192.168.1.100:32400
-Config: /Users/you/.plexlists-cli.json
+Config: /Users/you/.plexlists-conf.json
 
 ✅ Connection successful!
 Server: My Plex Server
@@ -95,7 +95,7 @@ Expected output:
 ```
 🔄 Syncing playlists to Plex library: "Music"
    Host: 192.168.1.100:32400
-   Config: /Users/you/.plexlists-cli.json
+   Config: /Users/you/.plexlists-conf.json
    Folders: 2
 
 ➕ Creating: "Favorites" (/Users/you/Music/Playlists/Favorites)

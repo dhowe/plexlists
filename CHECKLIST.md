@@ -19,7 +19,7 @@ Before publishing to npm, verify everything is ready.
   - [ ] `plexlists config show`
   - [ ] `plexlists test`
   - [ ] `plexlists sync FOLDER --dry-run`
-- [ ] Verify examples work: `cp examples/config-local.json ~/.plexlists-cli.json`
+- [ ] Verify examples work: `cp examples/config-local.json ~/.plexlists-conf.json`
 
 ## Documentation
 
@@ -50,7 +50,7 @@ Before publishing to npm, verify everything is ready.
 - [ ] npm account created
 - [ ] Email verified
 - [ ] Logged in: `npm whoami`
-- [ ] Package name available: `npm info plex-folder-playlist-cli`
+- [ ] Package name available: `npm info plexlists`
 
 ## Version
 
@@ -72,8 +72,8 @@ Before publishing to npm, verify everything is ready.
 
 ## Post-Publish
 
-- [ ] Verify on npm: https://www.npmjs.com/package/plex-folder-playlist-cli
-- [ ] Test install from npm: `npm install -g plex-folder-playlist-cli`
+- [ ] Verify on npm: https://www.npmjs.com/package/plexlists
+- [ ] Test install from npm: `npm install -g plexlists`
 - [ ] Create GitHub release with CHANGELOG
 - [ ] Announce (optional):
   - [ ] GitHub Discussions
@@ -112,7 +112,7 @@ git push && git push --tags
 npm publish
 
 # Verify
-npm info plex-folder-playlist-cli
-npm install -g plex-folder-playlist-cli
+npm info plexlists
+npm install -g plexlists
 plexlists --version
 ```

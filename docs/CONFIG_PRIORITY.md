@@ -1,12 +1,12 @@
 # Quick Reference: Config File Priority
 
-The CLI finds config in this order (first found wins):
+`plexlists` finds config in this order:
 
 ```
 1. --config flag       →  plexlists sync ... --config=/path/to/config.json
 2. Environment var     →  export PLEX_PLAYLIST_CONFIG=~/my-config.json
-3. Current directory   →  ./.plexlists.json
-4. Home directory      →  ~/.plexlists-cli.json
+3. Current directory   →  ./.plexlists-conf.json
+4. Home directory      →  ~/.plexlists-conf.json
 ```
 
 ## Config File Format
@@ -26,7 +26,7 @@ All config files use the same JSON structure:
 **Fields:**
 - `host` (required) - Plex server hostname or IP (can include protocol: `http://` or `https://`)
 - `port` (optional) - Server port, default: 32400
-- `token` (required) - Plex authentication token (see FINDPLEXTOKEN.md)
+- `token` (required) - Plex authentication token (see FIND_PLEX_TOKEN.md)
 - `library` (optional) - Default Plex library name (e.g., "Music", "Movies", "TV Shows")
 - `timeout` (optional) - Request timeout in milliseconds, default: 60000 (1 minute)
 
@@ -50,7 +50,7 @@ All config files use the same JSON structure:
   "host": "https://plex.mydomain.com",
   "port": 443,
   "token": "abc123xyz",
-  "library": "Music",
+  "library":"/Users/home/me/Music",
   "timeout": 120000
 }
 ```
@@ -61,15 +61,7 @@ All config files use the same JSON structure:
   "host": "192.168.1.50",
   "port": 32400,
   "token": "abc123xyz",
-  "library": "Music"
-}
-```
-
-**Minimal (port, library, timeout use defaults):**
-```json
-{
-  "host": "plex.local",
-  "token": "abc123xyz"
+  "library": "/Users/home/me/Music"
 }
 ```
 
@@ -78,7 +70,7 @@ All config files use the same JSON structure:
 ### Default (home config)
 ```bash
 plexlists config set --host=X --token=Y
-# Creates: ~/.plexlists-cli.json
+# Creates: ~/.plexlists-conf.json
 # Used by all commands unless overridden
 ```
 
@@ -86,7 +78,7 @@ plexlists config set --host=X --token=Y
 ```bash
 cd ~/my-music-project
 plexlists config set --host=X --token=Y
-# Creates: ~/my-music-project/.plexlists.json
+# Creates: ~/my-music-project/.plexlists-conf.json
 # Used when running from this directory
 ```
 
@@ -118,7 +110,7 @@ plexlists sync ~/Music/Playlists/* --library=Music \
 
 ### Per-project configs (recommended for teams)
 ```bash
-# Each project has .plexlists.json in its root
+# Each project has .plexlists-conf.json in its root
 cd ~/project-a && plexlists sync Playlists/* --library=Music
 cd ~/project-b && plexlists sync Playlists/* --library=Music
 ```
@@ -148,7 +140,7 @@ plexlists config show --config=/path/to/config.json
 ## Tips
 
 ✅ **DO:**
-- Use project-specific configs (`.plexlists.json` in project root)
+- Use project-specific configs (`.plexlists-conf.json` in project root)
 - Use env vars for shared servers
 - Use `--config` for one-off commands
 

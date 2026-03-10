@@ -1,4 +1,4 @@
-# plex-folder-playlist-cli
+# plexlists
 
 Command-line tool for syncing folder-based playlists in Plex
 
@@ -64,7 +64,7 @@ plexlists sync ~/Music/Playlists/*
 **Fields:**
 - `host` (required) - Plex server hostname or IP
 - `port` (optional) - Server port (default: 32400)
-- `token` (required) - Plex authentication token ([how to find](docs/FINDPLEXTOKEN.md))
+- `token` (required) - Plex authentication token ([how to find](docs/FIND_PLEX_TOKEN.md))
 - `library` (optional) - Default library name (e.g., "Music", "Movies")
 - `timeout` (optional) - Request timeout in ms (default: 60000)
 
@@ -72,8 +72,8 @@ plexlists sync ~/Music/Playlists/*
 
 1. `--config` flag - Explicit path
 2. `PLEX_PLAYLIST_CONFIG` env var
-3. `./.plexlists.json` - Project-specific
-4. `~/.plexlists-cli.json` - User default
+3. `./.plexlists-conf.json` - Project-specific
+4. `~/.plexlists-conf.json` - User default
 
 See [examples/](examples/) for sample configs and [docs/CONFIG-PRIORITY.md](docs/CONFIG-PRIORITY.md) for details.
 
@@ -198,7 +198,7 @@ Result in Plex:
 
 ## Documentation
 
-- [Finding Plex Token](docs/FINDPLEXTOKEN.md)
+- [Finding Plex Token](docs/FIND_PLEX_TOKEN.md)
 - [Finding Host & Port](docs/FINDHOST_PORT.md)
 - [Config Priority Guide](docs/CONFIG-PRIORITY.md)
 - [Publishing to npm](PUBLISHING.md)
@@ -237,7 +237,7 @@ plexlists config show   # Show config contents
 - [Plex Folder Playlist Creator (GUI)](https://github.com/zackria/Plex-Folder-Playlist-Creator) - Electron desktop app with same functionality
 
 ## Credits
-Based on code by Zack Dawood (https://github.com/zackria/Plex-Folder-Playlist-Creator)
+Based on code by Zack Dawood (https://github.com/zackria)
 
 ## License
 

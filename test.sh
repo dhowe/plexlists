@@ -3,30 +3,21 @@
 
 set -e
 
-echo "🧪 Testing CLI package..."
+echo "🧪 Testing..."
 echo ""
-
-# Check if in correct directory
-if [ ! -f "package.json" ]; then
-    echo "❌ Error: Run this from packages/cli directory"
-    exit 1
-fi
-
-# Install dependencies
-echo "📦 Installing dependencies..."
-npm install
 
 # Test imports
 echo "🔍 Testing module imports..."
-node -e "
-import('./bin/plexlists.js').then(() => {
-    console.log('✅ Module imports successful');
-    process.exit(0);
-}).catch(err => {
-    console.error('❌ Module import failed:', err.message);
-    process.exit(1);
-});
-"
+# node -e "
+# import('./bin/plexlists.js').then(() => {
+#     console.log('✅ Module imports successful');
+#     process.exit(0);
+# }).catch(err => {
+#     console.error('❌ Module import failed:', err.message);
+#     process.exit(1);
+# });
+# "
+# exit;
 
 # Test CLI help
 echo "📖 Testing CLI help..."

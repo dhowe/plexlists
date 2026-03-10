@@ -1,5 +1,5 @@
 {
-  "name": "plex-folder-playlist-cli",
+  "name": "plexlists",
   "version": "1.0.0",
   "description": "CLI for syncing folder-based playlists to Plex Media Server",
   "type": "module",

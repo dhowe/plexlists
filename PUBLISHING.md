@@ -53,8 +53,8 @@ npm pack --dry-run
 
 # Or create actual tarball for inspection
 npm pack
-tar -tzf plex-folder-playlist-cli-1.0.0.tgz
-rm plex-folder-playlist-cli-1.0.0.tgz
+tar -tzf plexlists-1.0.0.tgz
+rm plexlists-1.0.0.tgz
 ```
 
 ### 4. Update version
@@ -74,7 +74,7 @@ npm version major  # 1.0.0 -> 2.0.0
 npm publish
 ```
 
-Package will be available at: https://www.npmjs.com/package/plex-folder-playlist-cli
+Package will be available at: https://www.npmjs.com/package/plexlists
 
 ### Subsequent updates
 
@@ -88,7 +88,7 @@ Package will be available at: https://www.npmjs.com/package/plex-folder-playlist
 Users can install with:
 
 ```bash
-npm install -g plex-folder-playlist-cli
+npm install -g plexlists
 ```
 
 ## CI/CD (GitHub Actions)
@@ -145,14 +145,14 @@ npm publish --tag beta
 
 Users install with:
 ```bash
-npm install -g plex-folder-playlist-cli@beta
+npm install -g plexlists@beta
 ```
 
 ## Troubleshooting
 
 ### "Package name already taken"
 
-Change name in `package.json` or use scoped package (`@username/plex-folder-playlist-cli`).
+Change name in `package.json` or use scoped package (`@username/plexlists`).
 
 ### "You must verify your email"
 
@@ -166,20 +166,20 @@ Ensure you're logged in: `npm whoami`
 
 ```bash
 # View package info
-npm info plex-folder-playlist-cli
+npm info plexlists
 
 # View all versions
-npm view plex-folder-playlist-cli versions
+npm view plexlists versions
 
 # Download count (after published)
-npm info plex-folder-playlist-cli downloads
+npm info plexlists downloads
 ```
 
 ## Unpublish (emergency only)
 
 ```bash
 # Only within 72 hours of publish
-npm unpublish plex-folder-playlist-cli@1.0.0
+npm unpublish plexlists@1.0.0
 
 # Never unpublish if others depend on it!
 ```

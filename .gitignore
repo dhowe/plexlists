@@ -14,8 +14,8 @@ dist/
 build/
 
 # Config files (user-specific)
-.plexlists.json
-.plexlists-cli.json
+.plexlists-conf.json
+.plexlists-conf.json
 
 # OS files
 .DS_Store

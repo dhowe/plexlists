@@ -28,8 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Documentation
 - README with quick start
 - PUBLISHING guide
-- CONFIG-PRIORITY guide
-- FINDPLEXTOKEN guide
+- CONFIG_PRIORITY guide
+- FIND_PLEX_TOKEN guide
 - FINDHOST_PORT guide
 - Example configs
 

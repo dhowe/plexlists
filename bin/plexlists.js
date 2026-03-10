@@ -8,7 +8,7 @@ import { createPlexClient } from '../lib/plex/plexClient.js';
 import { createPlaylist, deletePlaylist, getPlaylist } from '../lib/plex/index.js';
 import logger from '../lib/plex/logger.js';
 
-const DEFAULT_CONFIG_PATH = path.join(os.homedir(), '.plexlists-cli.json');
+const DEFAULT_CONFIG_PATH = path.join(os.homedir(), '.plexlists-conf.json');
 const program = new Command();
 
 // ============================================================================
@@ -16,7 +16,7 @@ const program = new Command();
 // ============================================================================
 
 function getConfigPath(options) {
-  // Priority: --config flag > env var > cwd/.plexlists.json > default home config
+  // Priority: --config flag > env var > cwd/.plexlists-conf.json > default home config
   if (options?.config) {
     return path.resolve(options.config);
   }
@@ -25,7 +25,7 @@ function getConfigPath(options) {
     return path.resolve(process.env.PLEX_PLAYLIST_CONFIG);
   }
   
-  const cwdConfig = path.join(process.cwd(), '.plexlists.json');
+  const cwdConfig = path.join(process.cwd(), '.plexlists-conf.json');
   if (fs.existsSync(cwdConfig)) {
     return cwdConfig;
   }
@@ -228,7 +228,7 @@ program
   .command('config')
   .description('Manage configuration')
   .argument('<action>', 'Action: set, show, path')
-  .option('-c, --config <file>', 'Config file path (default: ~/.plexlists-cli.json)')
+  .option('-c, --config <file>', 'Config file path (default: ~/.plexlists-conf.json)')
   .option('--host <host>', 'Plex server host/IP')
   .option('--port <port>', 'Plex server port', '32400')
   .option('--token <token>', 'Plex authentication token')
