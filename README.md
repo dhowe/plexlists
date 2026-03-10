@@ -38,7 +38,6 @@ plexlists config set \
   --host=192.168.1.100 \
   --port=32400 \
   --token=YOUR_PLEX_TOKEN \
-  --library=Music
 
 # 2. Test connection
 plexlists test
